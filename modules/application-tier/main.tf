@@ -49,7 +49,7 @@ resource "aws_security_group_rule" "rule" {
 resource "aws_instance" "app" {
     ami = "${var.ami_id}"
     instance_type = "t1.micro"
-    key_name = "theoross-awskey"
+    key_name = "theoross-awskey2"
     user_data = "${var.user_data}"
     subnet_id = "${aws_subnet.theoross-app-subnet.id}"
     vpc_security_group_ids = ["${aws_security_group.theoross-sg-group.id}"]
@@ -60,7 +60,7 @@ resource "aws_instance" "app" {
       type        = "ssh"
       host        = "3.145.165.69"
       user        = "ubuntu"
-      private_key = file("/Users/theo/.ssh/theoross-awskey.pem")
+      private_key = file("/Users/theo/.ssh/theoross-awskey2.pem")
       timeout     = "4m"
   }
 }
